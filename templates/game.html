@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <title>Inputs for MadLib Game</title>
+</head>
+<body>
+    <h1> Enter in the following: </h1>
+    <form action="/madlib"> 
+        <br>
+        Enter in a person: <input type="text" name="person">
+        <!--Player to indicate Yes / No play a game -->
+        <br>
+        Choose a Color:
+        <select name="color">
+          <option value="RED">Red</option>
+          <option value="YELLOW">Yellow</option>
+          <option value="PURPLE">Purple</option>
+          <option value="BLUE">Blue</option>
+          <option value="Orange">Orange</option>
+        </select>
+        <br>
+        Choose a Noun:
+        <select name="noun">
+          <input type="checkbox" name="noun" value="dog">Dog
+          <input type="checkbox" name="noun" value="cat">Cat
+          <input type="checkbox" name="noun" value="hedgehog">Hedgehog
+          <input type="checkbox" name="noun" value="balloonicorn">Balloonicorn
+          <input type="checkbox" name="noun" value="yak">Yak
+        </select>
+        <br>
+        Choose an Adjective:
+        <input type="radio" name="adjective" value="perky">Perky
+        <input type="radio" name="adjective" value="feisty">Feisty
+        <input type="radio" name="adjective" value="gloomy">Gloomy
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
+
