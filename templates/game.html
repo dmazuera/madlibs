@@ -1,9 +1,9 @@
-<!doctype html>
-<html>
-<head>
-  <title>Inputs for MadLib Game</title>
-</head>
-<body>
+
+
+{% extends 'base.html' %}
+{% block title %}Inputs for MadLib Game{% endblock %}
+
+{% block content %}
     <h1> Enter in the following: </h1>
     <form action="/madlib"> 
         <br>
@@ -11,7 +11,7 @@
         <!--Player to indicate Yes / No play a game -->
         <br>
         Choose a Color:
-        <select name="color">
+        <select name="color" required>
           <option value="RED">Red</option>
           <option value="YELLOW">Yellow</option>
           <option value="PURPLE">Purple</option>
@@ -30,13 +30,15 @@
           <input type="checkbox" name="noun" value="yak">Yak -->
         <br>
         Choose an Adjective:
-        <input type="radio" name="adjective" value="perky">Perky
-        <input type="radio" name="adjective" value="feisty">Feisty
-        <input type="radio" name="adjective" value="gloomy">Gloomy
+        <input type="radio" name="adjective" value="perky" required>Perky
+        <input type="radio" name="adjective" value="feisty" required>Feisty
+        <input type="radio" name="adjective" value="gloomy" required>Gloomy
         <br>
         <input type="submit" value="Submit">
     </form>
 
-</body>
-</html>
+
+{% endblock %}
+
+
 

@@ -8,11 +8,7 @@ from flask import Flask, render_template, request
 # Flask wants to know this to know what any imported things are relative to.
 app = Flask(__name__)
 
-AWESOMENESS = [
-    'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza',
-    'oh-so-not-meh', 'brilliant', 'ducky', 'coolio', 'incredible', 'wonderful',
-    'smashing', 'lovely',
-]
+
 
 
 @app.route('/')
@@ -20,7 +16,6 @@ def start_here():
     """Home page."""
 
     return "<!doctype html><html>Hi! This is the <a href='/hello'> home page. </a> </html>"
-
 
 
 @app.route('/hello')
@@ -34,13 +29,36 @@ def say_hello():
 def greet_person():
     """Greet user with compliment."""
 
+
+    AWESOMENESS = [
+        'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza',
+        'oh-so-not-meh', 'brilliant', 'ducky', 'coolio', 'incredible', 'wonderful',
+        'smashing', 'lovely',
+    ]
+
+    c1 = choice(AWESOMENESS)
+
+    AWESOMENESS = list( set(AWESOMENESS) - {c1} )
+    
+    c2 = choice(AWESOMENESS)
+
+    AWESOMENESS = list( set(AWESOMENESS) - {c2} )
+    
+    c3 = choice(AWESOMENESS)
+
+    AWESOMENESS = list( set(AWESOMENESS) - {c3} )
+
+
+
+
+
     player = request.args.get("person")
 
-    compliment = choice(AWESOMENESS)
+    compliments= [c1, c2, c3 ]
 
     return render_template("compliment.html",
                            person=player,
-                           compliment=compliment)
+                           compliment=compliments)
 
 
 @app.route('/game')
@@ -66,9 +84,13 @@ def show_madlib():
     player = request.args.get("person")
     color = request.args.get("color")
     noun = request.args.get("noun")
+    if not noun:
+        noun = "CAT"
     adjective = request.args.get("adjective")
 
-    return render_template("madlib.html",
+    file_name = choice(["madlib.html", "madlib2.html"])
+
+    return render_template(file_name,
                            person=player,
                            color=color,
                            noun=noun,
