@@ -49,10 +49,14 @@ def show_madlib_form():
 
     game_response = request.args.get("yesno")
 
+    nouns = ["Dog", "Cat", "Balloonicorn", "hedgehog", "yak"]
+
+
+
     if game_response == "no":
         return render_template("goodbye.html")
     else:
-        return render_template("game.html")
+        return render_template("game.html", nouns= nouns)
 
 
 @app.route('/madlib')
